@@ -2,13 +2,16 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faLock } from '@fortawesome/free-solid-svg-icons';
-import { FormControl, InputGroup } from 'react-bootstrap';
+import { Button, FormControl, InputGroup } from 'react-bootstrap';
 import styles from './styles.module.css';
 import logo from '../../images/VollStore.png'
+import { useHistory } from "react-router-dom";
+
 function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [disabled, setDisabled] = useState(true);
+  const history = useHistory();
 
   useEffect(() => {
     const checkDisbale = () => {
@@ -26,19 +29,15 @@ function Login() {
   }, [email, password]);
 
   const handleClick = () => {
-    // saveTokenDrink();
-    // saveTokenFood();
-    // saveEmail(email);
-    // history.push('/foods');
-    console.log('teste');
+    history.push('/productlists');
   };
 
   return (
-    <div className={ styles.LoginBodyDiv }>
+    <div className={ styles.loginMainPage }>
       <div className={ styles.Logo }>
         <img src={ logo } alt="cooking logo" />
       </div>
-      <div className={ styles.LoginDiv }>
+      <div className={ styles.loginFormDiv }>
         <InputGroup className="mb-3">
           <InputGroup.Text id="basic-addon1">
             <FontAwesomeIcon icon={ faEnvelope } />
@@ -67,42 +66,14 @@ function Login() {
             aria-describedby="basic-addon1"
           />
         </InputGroup>
-        {/* <ButtonComponent
-          className="styles.testButton"
-          text="Enter"
-          name="lalaland"
-          disabled={ disabled }
-          dataTest="login-submit-btn"
-          onClick={ handleClick }
-          variant="orange2"
-        /> */}
+        <Button
+        variant="primary"
+        disabled={disabled}
+        onClick={handleClick}
+        >Entrar</Button>
       </div>
     </div>
-    // <form>
-    //   <input
-    //     data-testid="email-input"
-    //     value={ email }
-    //     onChange={ ({ target }) => setEmail(target.value) }
-    //     type="email"
-    //     placeholder="Email"
-    //   />
-    //   <input
-    //     data-testid="password-input"
-    //     value={ password }
-    //     onChange={ ({ target }) => setPassword(target.value) }
-    //     type="password"
-    //     placeholder="Senha"
-    //   />
-    //   <Button
-    //     className="styles.testButton"
-    //     text="Enter"
-    //     name="lalaland"
-    //     disabled={ disabled }
-    //     dataTest="login-submit-btn"
-    //     onClick={ handleClick }
-    //   />
-
-  // </form>
+   
   );
 }
 
