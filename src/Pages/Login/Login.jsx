@@ -5,13 +5,13 @@ import { faEnvelope, faLock } from '@fortawesome/free-solid-svg-icons';
 import { Button, FormControl, InputGroup } from 'react-bootstrap';
 import styles from './styles.module.css';
 import logo from '../../images/VollStore.png'
-import { useHistory } from "react-router-dom";
+import { useNavigate  } from "react-router-dom";
 
 function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [disabled, setDisabled] = useState(true);
-  const history = useHistory();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const checkDisbale = () => {
@@ -29,7 +29,7 @@ function Login() {
   }, [email, password]);
 
   const handleClick = () => {
-    history.push('/productlists');
+    navigate('/productlist');
   };
 
   return (
@@ -76,11 +76,5 @@ function Login() {
    
   );
 }
-
-Login.propTypes = {
-  history: PropTypes.shape({
-    push: PropTypes.func,
-  }).isRequired,
-};
 
 export default Login;
