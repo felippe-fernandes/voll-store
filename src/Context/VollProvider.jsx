@@ -1,11 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import RecipesContext from './VollContext';
 
 function VollProvider({ children }) {
-  const objValue = {
-
-  };
+  const [productList, setProductList] = useState([])
+  const objValue = { productList, setProductList};
 
   return (
     <RecipesContext.Provider value={ objValue }>
