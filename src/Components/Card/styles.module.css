@@ -1,0 +1,44 @@
+.CardContainer {
+    align-items: center;
+    background-color: #595959;
+    border: 2px black solid;
+    border-radius: 1em;
+    display: flex;
+    height: 10em;
+    margin-bottom: 1em;
+    position: relative;
+    width: 80vw;
+}
+
+.CardImg {
+    border: 2px black solid;
+    border-left: 0;
+    border-radius: 1em;
+    height: 9.8em;
+    margin-left: 0;
+    margin-right: 1em;
+}
+
+.CardTitleContainer {
+    background-color: #595959;
+}
+
+.CardTitle {
+    background-color: #595959;
+    color: #f4b860;
+    font-size: 26px;
+}
+
+.Price {
+    background-color: #595959;
+    color: #f4b860;
+}
+
+.Quantity {
+    background-color: #595959;
+    bottom: 1px;
+    color: #f4b860;
+    font-size: 20px;
+    position: absolute;
+    right: 1em;
+}
